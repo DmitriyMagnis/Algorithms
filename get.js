@@ -16,6 +16,19 @@ const get = (obj, path) => {
 		}
 	} 
 }
+// const get = (obj, path) => {
+// 	const tokens = path.split('.');
+// 	if (tokens.length === 1) {
+// 		return obj[path]
+// 	}
+
+// 	for (const token of tokens) {
+// 		if (typeof obj[token] === 'object') {
+// 			return get(obj[token], tokens.slice(1).join('.'))
+// 		}
+// 	}
+// }
+
 
 const obj = {
 	a: {
