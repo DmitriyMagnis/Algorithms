@@ -18,10 +18,11 @@ const solution = (inputString, shift = 0) => {
 }
 
 
-console.log(solution('ABCD', 26));
-console.log(solution('ABCD', 55));
-console.log(solution('Mike', 2));
-console.log(solution('', 4));
+// console.log(solution('ABCD', 26));
+// console.log(solution('ABCD', 55));
+// console.log(solution('Mike', 2));
+// console.log(solution('', 4));
 // solution('Mike', 26);
 // solution('Ellie', 55);
 // solution('', 55);
+
