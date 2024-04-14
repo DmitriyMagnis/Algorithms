@@ -4,13 +4,12 @@
 // 	return a.reduce((a, e) => a + e.value, 0)
 // };
 
-
 // addTwoPromises(Promise.resolve(2), Promise.resolve(2))
 //   .then(console.log); // 4
 
 // console.log(JSON.stringify([]))
 // function Proto(params) {
-	
+
 // }
 // Proto.prototype.toSt = function (params) {
 // 	console.log(this)
@@ -34,8 +33,3 @@
 // 	}
 // }
 // a.say()
-
-function name(params) {
-	console.log(arguments)
-}
-name(1, 2)
