@@ -33,3 +33,7 @@
 // 	}
 // }
 // a.say()
+var strStr = function (haystack, needle) {
+  return new RegExp(needle, 'g').exec(haystack)?.index ?? -1;
+};
+console.log(strStr('sadbutsad', 'sad'));
