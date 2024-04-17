@@ -33,7 +33,39 @@
 // 	}
 // }
 // a.say()
-var strStr = function (haystack, needle) {
-  return new RegExp(needle, 'g').exec(haystack)?.index ?? -1;
+const b = [1, 2, 3];
+const a = {
+  start: 1,
+  end: 6,
+  [Symbol.iterator]() {
+    let val = this.start;
+    return {
+      next: () => ({
+        value: val ** 2,
+        done: val++ === this.end,
+      }),
+    };
+  },
 };
-console.log(strStr('sadbutsad', 'sad'));
+// for (const key of a) {
+//   console.log(key);
+// }
+const a2 = {
+  start: 1,
+  end: 6,
+  [Symbol.asyncIterator]() {
+    let val = this.start;
+    return {
+      next: () =>
+        Promise.resolve({
+          value: val ** 2,
+          done: val++ === this.end,
+        }),
+    };
+  },
+};
+(async () => {
+  for await (const key of a) {
+    console.log(key);
+  }
+})();
