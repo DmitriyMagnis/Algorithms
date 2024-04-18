@@ -107,27 +107,39 @@ const a2 = {
 // const timer5s = timer(2000);
 // timer5s(fn);
 
-const curry2 =
-  fn =>
-  (...args) => {
-    if (fn.length > args.length) {
-      const f = fn.bind(null, ...args);
-      return curry2(f);
-    } else {
-      return fn(...args);
-    }
-  };
-const sum4 = (a, b, c, d) => a + b + c + d;
+// const curry2 =
+//   fn =>
+//   (...args) => {
+//     if (fn.length > args.length) {
+//       const f = fn.bind(null, ...args);
+//       return curry2(f);
+//     } else {
+//       return fn(...args);
+//     }
+//   };
+// const sum4 = (a, b, c, d) => a + b + c + d;
 
-const ff = curry2(sum4);
-const x1 = ff(1, 2, 3, 4);
-const x2 = ff(1, 2, 3)(4);
-const x3 = ff(1, 2)(3)(4);
-const x4 = ff(1)(2)(3)(4);
+// const ff = curry2(sum4);
+// const x1 = ff(1, 2, 3, 4);
+// const x2 = ff(1, 2, 3)(4);
+// const x3 = ff(1, 2)(3)(4);
+// const x4 = ff(1)(2)(3)(4);
 
-console.dir({
-  x1,
-  x2,
-  x3,
-  x4,
-});
+// console.dir({
+//   x1,
+//   x2,
+//   x3,
+//   x4,
+// });
+
+const user = {
+  set userName(name) {
+    console.log('asd', name);
+    this.name = name;
+  },
+  get userName() {
+    return this.name;
+  },
+};
+user.userName = 'str';
+console.log(user);
