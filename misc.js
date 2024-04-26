@@ -33,37 +33,37 @@
 // 	}
 // }
 // a.say()
-const b = [1, 2, 3];
-const a = {
-  start: 1,
-  end: 6,
-  [Symbol.iterator]() {
-    let val = this.start;
-    return {
-      next: () => ({
-        value: val ** 2,
-        done: val++ === this.end,
-      }),
-    };
-  },
-};
+// const b = [1, 2, 3];
+// const a = {
+//   start: 1,
+//   end: 6,
+//   [Symbol.iterator]() {
+//     let val = this.start;
+//     return {
+//       next: () => ({
+//         value: val ** 2,
+//         done: val++ === this.end,
+//       }),
+//     };
+//   },
+// };
 // for (const key of a) {
 //   console.log(key);
 // }
-const a2 = {
-  start: 1,
-  end: 6,
-  [Symbol.asyncIterator]() {
-    let val = this.start;
-    return {
-      next: () =>
-        Promise.resolve({
-          value: val ** 2,
-          done: val++ === this.end,
-        }),
-    };
-  },
-};
+// const a2 = {
+//   start: 1,
+//   end: 6,
+//   [Symbol.asyncIterator]() {
+//     let val = this.start;
+//     return {
+//       next: () =>
+//         Promise.resolve({
+//           value: val ** 2,
+//           done: val++ === this.end,
+//         }),
+//     };
+//   },
+// };
 // (async () => {
 //   for await (const key of a) {
 //     console.log(key);
@@ -132,14 +132,43 @@ const a2 = {
 //   x4,
 // });
 
-const user = {
-  set userName(name) {
-    console.log('asd', name);
-    this.name = name;
-  },
-  get userName() {
-    return this.name;
-  },
+// const user = {
+//   set userName(name) {
+//     console.log('asd', name);
+//     this.name = name;
+//   },
+//   get userName() {
+//     return this.name;
+//   },
+// };
+// user.userName = 'str';
+// console.log(user);
+
+const delayedResult = async () => {
+  return new Promise<{ user: number }>(pushRes => {
+    setTimeout(() => {
+      pushRes({ user: 2 });
+    }, 1000);
+  });
 };
-user.userName = 'str';
-console.log(user);
+
+const a = 'asd';
+
+const asyncConstruct = async () => {
+  return {
+    ...{ user: 1 },
+    ...(await delayedResult()),
+  };
+};
+
+asyncConstruct().then(console.log);
+
+// const obj = {
+//   key: 1,
+//   ...(function name(params) {
+//     let result;
+//     setTimeout(() => {
+//       result = {key: 2}
+//     }, 0);
+//   })()
+// }
