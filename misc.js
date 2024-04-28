@@ -132,27 +132,29 @@
 //   x4,
 // });
 
-// const user = {
-//   set userName(name) {
-//     console.log('asd', name);
-//     this.name = name;
-//   },
-//   get userName() {
-//     return this.name;
-//   },
-// };
-// user.userName = 'str';
-// console.log(user);
+const user = {
+  set userName(name) {
+    console.log('asd', name);
+    this.name = name;
+  },
+  get userName() {
+    return this.name;
+  },
+};
+user.userName = 'str';
+console.log(user);
 
 const delayedResult = async () => {
-  return new Promise<{ user: number }>(pushRes => {
-    setTimeout(() => {
-      pushRes({ user: 2 });
-    }, 1000);
-  });
+  return (
+    new Promise() <
+    { user: number } >
+    (pushRes => {
+      setTimeout(() => {
+        pushRes({ user: 2 });
+      }, 1000);
+    })
+  );
 };
-
-const a = 'asd';
 
 const asyncConstruct = async () => {
   return {
@@ -162,13 +164,3 @@ const asyncConstruct = async () => {
 };
 
 asyncConstruct().then(console.log);
-
-// const obj = {
-//   key: 1,
-//   ...(function name(params) {
-//     let result;
-//     setTimeout(() => {
-//       result = {key: 2}
-//     }, 0);
-//   })()
-// }
