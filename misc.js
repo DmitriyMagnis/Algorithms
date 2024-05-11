@@ -202,21 +202,3 @@
 // };
 // console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
 // console.log(merge([0, 0, 0, 0, 0], 0, [1, 2, 3, 4, 5], 5));
-
-const add = (a, b) => a + b;
-
-function curry(func) {
-  return function curried(...args) {
-    if (args.length >= func.length) {
-      return func.apply(this, args);
-    } else {
-      return function (...args2) {
-        return curried.apply(this, args.concat(args2));
-      };
-    }
-  };
-}
-
-const curryed = curry(add);
-
-console.log(curryed(1)(2));
