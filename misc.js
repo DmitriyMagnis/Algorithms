@@ -132,35 +132,91 @@
 //   x4,
 // });
 
-const user = {
-  set userName(name) {
-    console.log('asd', name);
-    this.name = name;
-  },
-  get userName() {
-    return this.name;
-  },
-};
-user.userName = 'str';
-console.log(user);
+// const user = {
+//   set userName(name) {
+//     console.log('asd', name);
+//     this.name = name;
+//   },
+//   get userName() {
+//     return this.name;
+//   },
+// };
+// user.userName = 'str';
+// console.log(user);
 
-const delayedResult = async () => {
-  return (
-    new Promise() <
-    { user: number } >
-    (pushRes => {
-      setTimeout(() => {
-        pushRes({ user: 2 });
-      }, 1000);
-    })
-  );
-};
+// const delayedResult = async () => {
+//   return (
+//     new Promise() <
+//     { user: number } >
+//     (pushRes => {
+//       setTimeout(() => {
+//         pushRes({ user: 2 });
+//       }, 1000);
+//     })
+//   );
+// };
 
-const asyncConstruct = async () => {
-  return {
-    ...{ user: 1 },
-    ...(await delayedResult()),
+// const asyncConstruct = async () => {
+//   return {
+//     ...{ user: 1 },
+//     ...(await delayedResult()),
+//   };
+// };
+
+// asyncConstruct().then(console.log);
+
+// const map1 = new Map();
+
+// map1.set('0', 'foo');
+// map1.set(1, 'bar');
+// for (const item of map1) {
+//   console.log(item);
+// }
+// const mySqrt = function (x) {
+//   if (x === 0) return 0;
+//   for (let i = 1; i <= x; i++) {
+//     console.log(i ** i === x, x, i * i, i);
+//     if (i * i === x) {
+//       return i;
+//     }
+//     if (i * i > x) {
+//       return i - 1;
+//     }
+//   }
+// };
+// console.log(mySqrt(0));
+// console.log(mySqrt(9));
+// var merge = function (nums1, m, nums2, n) {
+//   if (nums1.length > m) {
+//     console.log(nums1);
+//     nums1.splice(m, nums1.length);
+//   }
+
+//   if (nums2.length > n) {
+//     nums2.splice(n, nums2.length);
+//   }
+
+//   nums1.push(...nums2);
+
+//   return nums1.sort();
+// };
+// console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
+// console.log(merge([0, 0, 0, 0, 0], 0, [1, 2, 3, 4, 5], 5));
+
+const add = (a, b) => a + b;
+
+function curry(func) {
+  return function curried(...args) {
+    if (args.length >= func.length) {
+      return func.apply(this, args);
+    } else {
+      return function (...args2) {
+        return curried.apply(this, args.concat(args2));
+      };
+    }
   };
-};
+}
 
-asyncConstruct().then(console.log);
+const curryed = curry(add);
+
+console.log(curryed(1)(2));
