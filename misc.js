@@ -202,3 +202,20 @@
 // };
 // console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
 // console.log(merge([0, 0, 0, 0, 0], 0, [1, 2, 3, 4, 5], 5));
+
+// const a = new Date();
+// a.setDate(a.getDate() + 24 * 60 * 60 * 1000);
+// console.log(a);
+
+const iter = (product, counter, maxCount) => {
+  if (maxCount < counter) {
+    return product;
+  }
+  return iter(product * counter, ++counter, maxCount);
+};
+
+const fact = n => {
+  return iter(1, 1, n);
+};
+
+console.log(fact(6));
