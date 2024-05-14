@@ -1,11 +1,10 @@
-const iter = (product, counter, maxCount) => {
-  if (maxCount < counter) {
-    return product;
-  }
-  return iter(product * counter, ++counter, maxCount);
-};
-
-const fact = n => {
+const fact = maxCount => {
+  const iter = (product, counter) => {
+    if (maxCount < counter) {
+      return product;
+    }
+    return iter(product * counter, ++counter, maxCount);
+  };
   return iter(1, 1, n);
 };
 
