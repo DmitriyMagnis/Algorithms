@@ -1,3 +1,5 @@
+//https://learn.javascript.ru/task/fibonacci-numbers
+
 function fib(n) {
   let a = 1;
   let b = 1;
