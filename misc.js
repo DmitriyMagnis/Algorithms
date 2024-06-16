@@ -207,3 +207,118 @@
 // a.setDate(a.getDate() + 24 * 60 * 60 * 1000);
 // console.log(a);
 
+const promise = (t, data) => new Promise(r => setTimeout(() => r(data), t));
+
+// const promiseAll = promises => {
+//   return new Promise(res => {
+//     const result = [];
+//     let count = 1;
+//     promises.forEach((pr, i) => {
+//       pr.then(d => {
+//         result[i] = d;
+//         count++;
+//         if (count === promises.length) {
+//           res(result);
+//         }
+//       });
+//     });
+//   });
+// };
+
+// const promiseAll = async promises => {
+//   const result = [];
+//   for await (const p of promises) {
+//     result.push(p);
+//   }
+
+//   return Promise.resolve(result);
+// };
+// const a = promiseAll([
+//   promise(3000, { name: '1' }),
+//   promise(2000, { name: '2' }),
+//   promise(1000, { name: '3' }),
+// ]).then(a => console.log(a));
+
+// const func = str => {
+//   return str.replace(/-\w/g, a => a.replace('-', '').toUpperCase());
+// };
+
+// console.log(func('what-a-nice-dat'));
+
+// const obj = {
+//   data: 'sdf',
+//   func() {
+//     console.log(this);
+//     function name(params) {
+//       console.log(this.data);
+//     }
+//     name();
+//   },
+// };
+// obj.func();
+
+// let v = 2;
+
+// function name(params) {
+//   console.log('name', v);
+// }
+// function wrapper(params) {
+//   let v = 3;
+//   console.log('wrapper', v);
+//   name();
+// }
+// wrapper();
+// fetch('https://swapi.dev/api/films')
+//   .then(a => console.log(a))
+//   .then(console.log);
+// Promise.allSettled([Promise.resolve('asd'), Promise.reject(new Error('errot'))])
+//   .then(e => console.log(e))
+//   .catch(e => {
+//     console.log(e instanceof AggregateError); // true
+//     console.log(e.message); // "All Promises rejected"
+//     console.log(e.name); // "AggregateError"
+//     console.log(e.errors); // [ Error: "some error" ]
+//   });
+
+// const promise1 = Promise.reject(0);
+// const promise2 = new Promise(resolve => setTimeout(resolve, 1100, 'quick'));
+// const promise3 = new Promise(resolve => setTimeout(resolve, 500, 'slow'));
+
+// const promises = [promise1, promise2, promise3];
+
+// Promise.any(promises).then(value => console.log(value));
+
+// const first = second => {
+//   let a = 2;
+//   for (let i = 0; i < 10; i++) {
+//     console.log('xaxa');
+//     setTimeout(
+//       (b => {
+//         console.log(a, i, b);
+//       }).bind(this, a),
+//       2000
+//     );
+//     a++;
+//   }
+// };
+
+// first();
+// const func = async () => {
+//   try {
+//     const h = new Headers();
+
+//     const res = await apicall(
+//       'http://readmanga.live/novaia_jizn_ubiicy_bogov__A533b/vol1/3',
+//       { headers: h }
+//     );
+//     const data = await res.json();
+//     console.log('response', res, data);
+//   } catch (error) {
+//     throw new AggregateError([new Error('some error')], 'Hello');
+//   }
+// };
+
+// func().catch(e => {
+//   console.log('OUTER', e instanceof AggregateError);
+//   console.dir(e);
+// });
