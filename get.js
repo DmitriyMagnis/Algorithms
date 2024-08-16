@@ -1,21 +1,21 @@
-const get = (obj, path) => {
-  const queue = path.split('.');
-  let cNode = { ...obj };
-  while (queue.length) {
-    const step = queue.shift();
+// const get = (obj, path) => {
+//   const queue = path.split('.');
+//   let cNode = { ...obj };
+//   while (queue.length) {
+//     const step = queue.shift();
 
-    if (step in cNode) {
-      cNode =
-        cNode[step]?.constructor === Object ? { ...cNode[step] } : cNode[step];
+//     if (step in cNode) {
+//       cNode =
+//         cNode[step]?.constructor === Object ? { ...cNode[step] } : cNode[step];
 
-      if (queue.length === 0) {
-        return cNode;
-      }
-    } else {
-      return false;
-    }
-  }
-};
+//       if (queue.length === 0) {
+//         return cNode;
+//       }
+//     } else {
+//       return false;
+//     }
+//   }
+// };
 // const get = (obj, path) => {
 // 	const tokens = path.split('.');
 // 	if (tokens.length === 1) {

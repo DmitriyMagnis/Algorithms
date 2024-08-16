@@ -322,3 +322,32 @@ const promise = (t, data) => new Promise(r => setTimeout(() => r(data), t));
 //   console.log('OUTER', e instanceof AggregateError);
 //   console.dir(e);
 // });
+
+// const sum = start => {
+//   let result = start;
+
+//   const inner = arg => {
+//     if (!arg) return result;
+//     result += arg;
+//     return inner;
+//   };
+
+//   return start ? inner : 0;
+// };
+
+// console.log(sum(9)(10)(10)); //19
+// console.log(sum(9)()); //9
+// console.log(sum()); //0
+
+let str = 'cbacbebabacdcba';
+let substr = 'abc';
+
+const func = (str, substr) => {
+  const split = substr.split('').reverse().join('');
+  const a = [...str.matchAll(new RegExp(split, 'g'))];
+  if (!a.length) return [];
+  const first = a[0].index;
+  return [first, first + substr.length - 1];
+};
+
+console.log(func(str, substr)); //[0, 5]
