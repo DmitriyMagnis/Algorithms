@@ -23,6 +23,7 @@ var removeDuplicates = function (nums) {
 	return nums.length
 }
 removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])
+removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 2])
 // removeDuplicates([1, 1, 1, 1]);
 removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])
 // removeDuplicates([1, 1, 1, 1]);
