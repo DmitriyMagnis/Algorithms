@@ -207,7 +207,7 @@
 // a.setDate(a.getDate() + 24 * 60 * 60 * 1000);
 // console.log(a);
 
-const promise = (t, data) => new Promise(r => setTimeout(() => r(data), t));
+const promise = (t, data) => new Promise(r => setTimeout(() => r(data), t))
 
 // const promiseAll = promises => {
 //   return new Promise(res => {
@@ -339,15 +339,33 @@ const promise = (t, data) => new Promise(r => setTimeout(() => r(data), t));
 // console.log(sum(9)()); //9
 // console.log(sum()); //0
 
-let str = 'cbacbebabacdcba';
-let substr = 'abc';
+// let str = 'cbacbebabacdcba';
+// let substr = 'abc';
 
-const func = (str, substr) => {
-  const split = substr.split('').reverse().join('');
-  const a = [...str.matchAll(new RegExp(split, 'g'))];
-  if (!a.length) return [];
-  const first = a[0].index;
-  return [first, first + substr.length - 1];
-};
+// const func = (str, substr) => {
+//   const split = substr.split('').reverse().join('');
+//   const a = [...str.matchAll(new RegExp(split, 'g'))];
+//   if (!a.length) return [];
+//   const first = a[0].index;
+//   return [first, first + substr.length - 1];
+// };
 
-console.log(func(str, substr)); //[0, 5]
+// console.log(func(str, substr)); //[0, 5]
+
+function checkPalindrom(str) {
+	return str == str.split('').reverse().join('')
+}
+
+function checkPalindrom2(str) {
+	let j = str.length - 1
+	for (let i = 0; i < str.length / 2; i++) {
+		if (str[i] != str[j]) {
+			return false
+		}
+		j--
+	}
+	return true
+}
+
+console.log(checkPalindrom('aba'))
+console.log(checkPalindrom2('aba'))
