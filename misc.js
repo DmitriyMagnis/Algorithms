@@ -401,16 +401,31 @@ const promise = (t, data) => new Promise(r => setTimeout(() => r(data), t))
 // 	}
 // }
 
-const obj = {
-	a: {
-		b: {
-			c: null,
-		},
-		e: 'f',
-	},
-}
+// const obj = {
+// 	a: {
+// 		b: {
+// 			c: null,
+// 		},
+// 		e: 'f',
+// 	},
+// }
 
-console.log(get(obj, 'a.b'))
-console.log(get(obj, 'a.b.c'))
-console.log(get(obj, 'a.e'))
-console.log(get(obj, 'a.x.e'))
+// console.log(get(obj, 'a.b'))
+// console.log(get(obj, 'a.b.c'))
+// console.log(get(obj, 'a.e'))
+// console.log(get(obj, 'a.x.e'))
+
+const stringChanger = str => {
+	let result = ''
+	let letters = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']
+
+	for (let i = 0; i < str.length; i += 1) {
+		if (letters.includes(str[i])) {
+			result = result + str[i].toUpperCase()
+		} else {
+			result = result + str[i].toLowerCase()
+		}
+	}
+	return result
+}
+console.log(stringChanger('Привет Мир'))
