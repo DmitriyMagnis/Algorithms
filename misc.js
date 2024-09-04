@@ -426,6 +426,7 @@ const stringChanger = str => {
 			result = result + str[i].toLowerCase()
 		}
 	}
+
 	return result
 }
 console.log(stringChanger('Привет Мир'))
